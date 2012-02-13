@@ -1,0 +1,42 @@
+.size1 td
+{
+	padding:20px;
+}
+
+#top
+{
+	background-color:#333333;
+	border-color:white;
+	border-spacing:0px;
+	color:#cccccc;
+	font-family:sans-serif;
+	font-size:12px;
+}
+
+#top td
+{
+	border-width:1px;
+	border-bottom-width:5px;
+	border-left-width:7px;
+	border-color:white;
+	border-style:solid;
+	padding-bottom:8px;
+	padding-top:12px;
+	background-color:#333333;
+}
+
+#field
+{
+	border-color:#666666;
+	border-style:solid;
+	border-spacing:0px;
+	color:#666666;
+}
+
+#field td
+{
+	border-color:#666666;
+	border-width:10px;
+	border-style:solid;
+	color:white;
+}
