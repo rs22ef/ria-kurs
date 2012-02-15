@@ -1,6 +1,23 @@
-.size1 td
+.size0 td
 {
 	padding:20px;
+}
+
+.color0player
+{
+	color:red;
+	background-color:red;
+}
+
+.color0computer
+{
+	color:green;
+	background-color:green;
+}
+
+td
+{
+	color:white;
 }
 
 #top
@@ -38,5 +55,5 @@
 	border-color:#666666;
 	border-width:10px;
 	border-style:solid;
-	color:white;
+	/*color:white;*/
 }
