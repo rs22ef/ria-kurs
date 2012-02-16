@@ -15,6 +15,23 @@
 	background-color:green;
 }
 
+ul
+{
+	margin-top:40px;
+	padding-left:10px;
+}
+
+li
+{
+	display:inline;
+	background-color:#333333;
+	color:#cccccc;
+	font-family:sans-serif;
+	font-size:12px;
+	padding:10px;
+	margin:8px;
+}
+
 td
 {
 	color:white;
@@ -37,6 +54,7 @@ td
 	border-left-width:7px;
 	border-color:white;
 	border-style:solid;
+	color:#cccccc;
 	padding-bottom:8px;
 	padding-top:12px;
 	background-color:#333333;
