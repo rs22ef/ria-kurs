@@ -1,6 +1,10 @@
 /*
    Function: addPiece(row)
    adds another piece
+   
+   Variables:
+   
+   row - the row in which the piece is added
  */
 
 function addPiece(row) {
