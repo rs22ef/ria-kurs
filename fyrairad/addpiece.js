@@ -5,6 +5,7 @@
    Variables:
    
    row - the row in which the piece is added
+   colr - object with the colors in use
  */
 
 function addPiece(row) {
@@ -12,11 +13,17 @@ function addPiece(row) {
 	
 	if (piecenr <= 4) {
 
+		var colr = colors[color];
 		cellid = 'cell'+row+piecenr;
+		field[row-1][piecenr-1] = (playerturn)? 1 : 2;
 		if (playerturn) {
-			colorstring = 'color'+color+'player';
+			playercolor = colr.get('player');
+			//colorstring = 'color'+color+'player';
+			colorstring = 'color:' + playercolor + ';background-color:' + playercolor;
 		} else {
-			colorstring = 'color'+color+'computer';
+			computercolor = colr.get('computer');
+			//colorstring = 'color'+color+'computer';
+			colorstring = 'color:' + computercolor + ';background-color:' + computercolor;
 		}
 		playerturn = !playerturn;
 		lastmove = row;
@@ -30,7 +37,8 @@ function addPiece(row) {
 	
 			cell = document.getElementById(cellid);
 			
-			cell.setAttribute('class',msg);
+			//cell.setAttribute('class',msg);
+			cell.setAttribute('style',msg);
 			
 	/*		if (gameOver()) {
 				alert('slut');
