@@ -17,25 +17,39 @@
 */
 
 function newGame() {
-	sizes = new Array();
-	colors = new Array();
-	sizes.push(new size({
-		width:20,
-		height:20
+	//sizes = new Array();
+	//colors = new Array();
+	sizes = new Backbone.Collection;
+	colors = new Backbone.Collection;
+	/*sizes.push(new size({
+		widthheight:20
 	}));
 	sizes.push(new size({
-		width:25,
-		height:25
-	}));
+		widthheight:25
+	}));*/
+	sizes.add([
+		{widthheight:20}
+	]);
+	sizes.add([
+   		{widthheight:25}
+   	]);
 	maxsizes = sizes.length;
-	colors.push(new color({
+	/*colors.push(new color({
 		player:'#ff0000',
 		computer:'#00ff00'
 	}));
 	colors.push(new color({
 		player:'#ffff00',
 		computer:'#0000ff'
-	}));
+	}));*/
+	colors.add([{
+		player:'#ff0000',
+		computer:'#00ff00'
+	}]);
+	colors.add([{
+		player:'#ffff00',
+		computer:'#0000ff'
+	}]);
 	maxcolors = colors.length;
 	color = 0;
 	size = 0;

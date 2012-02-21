@@ -12,8 +12,7 @@
 */
 
 var size = Backbone.Model.extend({
-	width:10,
-	height:10
+	widthheight:10
 });
 
 var color = Backbone.Model.extend({
@@ -23,10 +22,10 @@ var color = Backbone.Model.extend({
 
 function changeSize() {
 	size = (++size) % maxsizes;
-	sizestring = 'size' + size;
+	//sizestring = 'size' + size;
 	//alert("storleksvariabel ändrad till " + size);
 
-	//temporary solution
+/*	//temporary solution
 	var object = {};
 	
 	_.extend(object, Backbone.Events);
@@ -43,16 +42,30 @@ function changeSize() {
 		
 	});
 
-	object.trigger("setsize",sizestring);
+	object.trigger("setsize",sizestring);*/
+	
+	//var colr = colors[color];
+	var colr = colors.at(color);
+	//var sze = sizes[size];
+	var sze = sizes.at(size);
+	playercolor = colr.get('player');
+	computercolor = colr.get('computer');
+	fieldsize = sze.get('widthheight');
+	
+	updateSize();
 }
 
 function changeColor() {
 	color = (++color) % maxcolors;
 	//alert("färgvariabel ändrad till " + color);
 	
-	var colr = colors[color];
+	//var colr = colors[color];
+	var colr = colors.at(color);
+	//var sze = sizes[size];
+	var sze = sizes.at(size);
 	playercolor = colr.get('player');
 	computercolor = colr.get('computer');
+	fieldsize = sze.get('widthheight');
 	
 	updateColor();
 }

@@ -9,57 +9,59 @@
 	    <script type="text/javascript" src="settings.js"></script>
 	    <script type="text/javascript" src="newgame.js"></script>
 	    <script type="text/javascript" src="updatecolor.js"></script>
+	    <script type="text/javascript" src="updatesize.js"></script>
 	    <script type="text/javascript" src="addpiece.js"></script>
 	    <script type="text/javascript" src="changemove.js"></script>
 	    <script type="text/javascript" src="gameover.js"></script>
+	    <script type="text/javascript" src="extras.js"></script>
 	    <script type="text/javascript" src="fyrairad.js"></script>
 	</head>
 	<body>
 		<h2>Fyra i rad</h2>
 		<p>Här kan man spela fyra-i-rad</p>
 		<div>
-			<table id="top" class="size0">
+			<table id="top"> <!--class="size0"-->
 				<tr>
-					<td id="row1" onclick="addPiece(1)">rad 1</td>
-					<td id="row2" onclick="addPiece(2)">rad 2</td>
-					<td id="row3" onclick="addPiece(3)">rad 3</td>
-					<td id="row4" onclick="addPiece(4)">rad 4</td>
-					<td id="row5" onclick="addPiece(5)">rad 5</td>
-					<td id="row6" onclick="addPiece(6)">rad 6</td>
+					<td style="padding-left:20px;padding-right:20px" id="row1" onclick="addPiece(1)">rad 1</td>
+					<td style="padding-left:20px;padding-right:20px" id="row2" onclick="addPiece(2)">rad 2</td>
+					<td style="padding-left:20px;padding-right:20px" id="row3" onclick="addPiece(3)">rad 3</td>
+					<td style="padding-left:20px;padding-right:20px" id="row4" onclick="addPiece(4)">rad 4</td>
+					<td style="padding-left:20px;padding-right:20px" id="row5" onclick="addPiece(5)">rad 5</td>
+					<td style="padding-left:20px;padding-right:20px" id="row6" onclick="addPiece(6)">rad 6</td>
 				</tr>
 			</table>
-			<table id="field" class="size0">
+			<table id="field"> <!--class="size0"-->
 				<tr>
-					<td id="cell14">14</td>
-					<td id="cell24">24</td>
-					<td id="cell34">34</td>
-					<td id="cell44">44</td>
-					<td id="cell54">54</td>
-					<td id="cell64">64</td>
+					<td style="padding:20px" id="cell14">14</td>
+					<td style="padding:20px" id="cell24">24</td>
+					<td style="padding:20px" id="cell34">34</td>
+					<td style="padding:20px" id="cell44">44</td>
+					<td style="padding:20px" id="cell54">54</td>
+					<td style="padding:20px" id="cell64">64</td>
 				</tr>
 				<tr>
-					<td id="cell13">13</td>
-					<td id="cell23">23</td>
-					<td id="cell33">33</td>
-					<td id="cell43">43</td>
-					<td id="cell53">53</td>
-					<td id="cell63">63</td>
+					<td style="padding:20px" id="cell13">13</td>
+					<td style="padding:20px" id="cell23">23</td>
+					<td style="padding:20px" id="cell33">33</td>
+					<td style="padding:20px" id="cell43">43</td>
+					<td style="padding:20px" id="cell53">53</td>
+					<td style="padding:20px" id="cell63">63</td>
 				</tr>
 				<tr>
-					<td id="cell12">12</td>
-					<td id="cell22">22</td>
-					<td id="cell32">32</td>
-					<td id="cell42">42</td>
-					<td id="cell52">52</td>
-					<td id="cell62">62</td>
+					<td style="padding:20px" id="cell12">12</td>
+					<td style="padding:20px" id="cell22">22</td>
+					<td style="padding:20px" id="cell32">32</td>
+					<td style="padding:20px" id="cell42">42</td>
+					<td style="padding:20px" id="cell52">52</td>
+					<td style="padding:20px" id="cell62">62</td>
 				</tr>
 				<tr>
-					<td id="cell11">11</td>
-					<td id="cell21">21</td>
-					<td id="cell31">31</td>
-					<td id="cell41">41</td>
-					<td id="cell51">51</td>
-					<td id="cell61">61</td>
+					<td style="padding:20px" id="cell11">11</td>
+					<td style="padding:20px" id="cell21">21</td>
+					<td style="padding:20px" id="cell31">31</td>
+					<td style="padding:20px" id="cell41">41</td>
+					<td style="padding:20px" id="cell51">51</td>
+					<td style="padding:20px" id="cell61">61</td>
 				</tr>
 			</table>
 		</div>
@@ -67,6 +69,12 @@
 			<li onclick="changeSize()">Ändra storlek</li>
 			<li onclick="changeColor()">Ändra färg</li>
 			<li id="lastmove" onclick="changeLastMove()">Ångra senaste drag</li>
+		</ul>
+		<ul>
+			<li onclick="addSize()">Lägg till storlek</li>
+			<li onclick="removeSize()">Ta bort storlek</li>
+			<li onclick="lighter()">Gör 1:a spelarens färg ljusare</li>
+			<li onclick="darker()">Gör 2:a spelarens färg mörkare</li>
 		</ul>
 		<script type="text/javascript">
 			window.onload = newGame;

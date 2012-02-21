@@ -19,16 +19,22 @@ function changeLastMove() {
 		
 		_.extend(object, Backbone.Events);
 	
-		object.on("changemove", function() {
+		object.on("changemove", function(msg) {
 	
 			cell = document.getElementById(cellid);
 			
 			//cell.removeAttribute('class');
-			cell.removeAttribute('style');
+			//cell.removeAttribute('style');
+			cell.setAttribute('style',msg);
 			
 		});
-	
-		object.trigger("changemove");
+
+		//var sze = sizes[size];
+		var sze = sizes.at(size);
+		fieldsize = sze.get('widthheight');
+		
+		colorstring = 'padding:' + fieldsize + 'px';
+		object.trigger("changemove",colorstring);
 		
 	} else {
 		alert("Det går inte att ändra fler drag");

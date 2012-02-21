@@ -1,15 +1,15 @@
 /*
-  Function: updateColor
-  updates colors after color settings have been changed
+  Function: updateSize
+  updates sizes after size settings have been changed
  */
 
-function updateColor() {
+function updateSize() {
 	
 	var object = {};
 	
 	_.extend(object, Backbone.Events);
 
-	object.on("setcolor", function(msg) {
+	object.on("setsize", function(msg) {
 
 		cell = document.getElementById(cellid);
 		
@@ -18,17 +18,24 @@ function updateColor() {
 	});
 	
 	for (var i = 0; i < 6; i++) {
+		
+		cellid = 'row'+(i+1);
+		sizestring = 'padding-left:' + fieldsize + 'px;padding-right:' + fieldsize + 'px';
+		object.trigger("setsize",sizestring);
+		
 		for (var j = 0; j < 4; j++) {
 
 			cellid = 'cell'+(i+1)+(j+1);
 			
 			switch (field[i][j]) {
-			case 0:break;
+			case 0:	colorstring = 'padding:' + fieldsize + 'px';
+					object.trigger("setsize",colorstring);
+					break;
 			case 1:	colorstring = 'padding:' + fieldsize + 'px;color:' + playercolor + ';background-color:' + playercolor;
-					object.trigger("setcolor",colorstring);
+					object.trigger("setsize",colorstring);
 					break;
 			case 2:	colorstring = 'padding:' + fieldsize + 'px;color:' + computercolor + ';background-color:' + computercolor;
-					object.trigger("setcolor",colorstring);
+					object.trigger("setsize",colorstring);
 					break;
 			}
 		}
