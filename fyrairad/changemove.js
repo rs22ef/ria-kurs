@@ -12,6 +12,7 @@ function changeLastMove() {
 	
 		playerturn = !playerturn;
 		piecesinrow[lastmove-1]--;
+		field[lastmove-1][piecenr-1] = 0;
 		lastmove = 0;
 		
 		var object = {};
@@ -22,7 +23,8 @@ function changeLastMove() {
 	
 			cell = document.getElementById(cellid);
 			
-			cell.removeAttribute('class');
+			//cell.removeAttribute('class');
+			cell.removeAttribute('style');
 			
 		});
 	

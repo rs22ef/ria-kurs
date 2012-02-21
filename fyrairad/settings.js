@@ -53,4 +53,6 @@ function changeColor() {
 	var colr = colors[color];
 	playercolor = colr.get('player');
 	computercolor = colr.get('computer');
+	
+	updateColor();
 }

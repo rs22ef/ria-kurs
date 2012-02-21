@@ -29,12 +29,12 @@ function newGame() {
 	}));
 	maxsizes = sizes.length;
 	colors.push(new color({
-		player:'#ff5555',//0xff5555,
-		computer:'#00aa00'//0x00aa00
+		player:'#ff0000',
+		computer:'#00ff00'
 	}));
 	colors.push(new color({
-		player:'#ffff55',//0xffff55,
-		computer:'#0000aa'//0x0000aa
+		player:'#ffff00',
+		computer:'#0000ff'
 	}));
 	maxcolors = colors.length;
 	color = 0;
