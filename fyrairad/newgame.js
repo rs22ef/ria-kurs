@@ -4,8 +4,8 @@
   
   Variables:
   
-  color - if 0, user has red and computer green, if 1, user has yellow and computer blue
-  size - size of board
+  colorused - if 0, user has red and computer green, if 1, user has yellow and computer blue
+  sizeused - size of board
   maxsizes - total number of available sizes
   maxcolors - total number of available colors
   sizes - array of available sizes
@@ -51,8 +51,8 @@ function newGame() {
 		computer:'#0000ff'
 	}]);
 	maxcolors = colors.length;
-	color = 0;
-	size = 0;
+	colorused = 0;
+	sizeused = 0;
 	playerturn = true;
 	lastmove = 0;
 	field = new Array();

@@ -15,9 +15,9 @@ function addPiece(row) {
 	if (piecenr <= 4) {
 
 		//var colr = colors[color];
-		var colr = colors.at(color);
+		var colr = colors.at(colorused);
 		//var sze = sizes[size];
-		var sze = sizes.at(size);
+		var sze = sizes.at(sizeused);
 		cellid = 'cell'+row+piecenr;
 		field[row-1][piecenr-1] = (playerturn)? 1 : 2;
 		fieldsize = sze.get('widthheight');

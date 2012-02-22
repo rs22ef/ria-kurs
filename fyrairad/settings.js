@@ -12,7 +12,18 @@
 */
 
 var size = Backbone.Model.extend({
-	widthheight:10
+	widthheight:10,
+	validate:function(attrs) {
+		if (parseInt(widthheight) == NaN) {
+			return 'var god ange ett nummer';
+		}
+		if (parseInt(widthheight) < 10) {
+			return 'numret måste vara minst 10';
+		}
+		if (parseInt(widthheight) > 35) {
+			return 'numret måste vara högst 35';
+		}
+	}
 });
 
 var color = Backbone.Model.extend({
@@ -21,7 +32,7 @@ var color = Backbone.Model.extend({
 });
 
 function changeSize() {
-	size = (++size) % maxsizes;
+	sizeused = (++sizeused) % maxsizes;
 	//sizestring = 'size' + size;
 	//alert("storleksvariabel ändrad till " + size);
 
@@ -45,9 +56,9 @@ function changeSize() {
 	object.trigger("setsize",sizestring);*/
 	
 	//var colr = colors[color];
-	var colr = colors.at(color);
+	var colr = colors.at(colorused);
 	//var sze = sizes[size];
-	var sze = sizes.at(size);
+	var sze = sizes.at(sizeused);
 	playercolor = colr.get('player');
 	computercolor = colr.get('computer');
 	fieldsize = sze.get('widthheight');
@@ -56,13 +67,13 @@ function changeSize() {
 }
 
 function changeColor() {
-	color = (++color) % maxcolors;
+	colorused = (++colorused) % maxcolors;
 	//alert("färgvariabel ändrad till " + color);
 	
 	//var colr = colors[color];
-	var colr = colors.at(color);
+	var colr = colors.at(colorused);
 	//var sze = sizes[size];
-	var sze = sizes.at(size);
+	var sze = sizes.at(sizeused);
 	playercolor = colr.get('player');
 	computercolor = colr.get('computer');
 	fieldsize = sze.get('widthheight');

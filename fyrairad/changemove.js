@@ -30,7 +30,7 @@ function changeLastMove() {
 		});
 
 		//var sze = sizes[size];
-		var sze = sizes.at(size);
+		var sze = sizes.at(sizeused);
 		fieldsize = sze.get('widthheight');
 		
 		colorstring = 'padding:' + fieldsize + 'px';
