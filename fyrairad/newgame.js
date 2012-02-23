@@ -19,21 +19,35 @@
 function newGame() {
 	//sizes = new Array();
 	//colors = new Array();
-	sizes = new Backbone.Collection;
-	colors = new Backbone.Collection;
+	sizeColl = Backbone.Collection.extend({
+		localStorage:new Store("localSizes"),
+		model:size
+	});
+	sizes = new sizeColl;
+	sizes.fetch();
+	colorColl = Backbone.Collection.extend({
+		localStorage:new Store("localColors"),
+		model:size
+	});
+	colors = new colorColl;
 	/*sizes.push(new size({
 		widthheight:20
 	}));
 	sizes.push(new size({
 		widthheight:25
 	}));*/
-	sizes.add([
+	//sizes.create doesn't work
+	sizes.create(
 		{widthheight:20}
-	]);
-	sizes.add([
+	);
+	sizes.create(
    		{widthheight:25}
-   	]);
+   	);
 	maxsizes = sizes.length;
+	/*for (var i=0;i<maxsizes;i++) {
+		size = sizes.at(i);
+		size.save();
+	}*/
 	/*colors.push(new color({
 		player:'#ff0000',
 		computer:'#00ff00'
@@ -42,14 +56,14 @@ function newGame() {
 		player:'#ffff00',
 		computer:'#0000ff'
 	}));*/
-	colors.add([{
+	colors.create({
 		player:'#ff0000',
 		computer:'#00ff00'
-	}]);
-	colors.add([{
+	});
+	colors.create({
 		player:'#ffff00',
 		computer:'#0000ff'
-	}]);
+	});
 	maxcolors = colors.length;
 	colorused = 0;
 	sizeused = 0;

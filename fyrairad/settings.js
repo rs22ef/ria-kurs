@@ -13,7 +13,7 @@
 
 var size = Backbone.Model.extend({
 	widthheight:10,
-	validate:function(attrs) {
+	/*validate:function(attrs) {
 		if (parseInt(widthheight) == NaN) {
 			return 'var god ange ett nummer';
 		}
@@ -23,7 +23,7 @@ var size = Backbone.Model.extend({
 		if (parseInt(widthheight) > 35) {
 			return 'numret måste vara högst 35';
 		}
-	}
+	}*/
 });
 
 var color = Backbone.Model.extend({

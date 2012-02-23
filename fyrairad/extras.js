@@ -50,6 +50,7 @@ function addSize() {
 		
 		if(nsOK) {
 			sizes.add(ns,{at:sizeused+1});
+			ns.save();
 			maxsizes = sizes.length;
 			sizeused = (++sizeused) % maxsizes;
 			//sizeused = maxsizes - 1;
@@ -71,6 +72,7 @@ function removeSize() {
 	} else {
 		//alert('tar bort storlek');
 		var sze = sizes.at(sizeused);
+		sze.destroy();
 		sizes.remove(sze);
 		maxsizes = sizes.length;
 		sizeused = sizeused % maxsizes;
@@ -89,8 +91,41 @@ function lighter() {
 	//alert('gör pjäser ljusare');
 	var colr = colors.at(colorused);
 
+	var oldcolor = colr.get('player');
+	var newcolor = '#';
+	for (var cl = 1; cl < 7; cl = cl + 2) {
+
+		var colchar = oldcolor.charAt(cl);
+		switch (colchar) {
+		case '0':
+		case '1':
+		case '2':
+		case '3':
+			newcolor += '55';break;
+		case '4':
+		case '5':
+		case '6':
+		case '7':
+		case '8':
+			newcolor += 'aa';break;
+		case '9':
+		case 'a':
+			newcolor += 'cc';break;
+		case 'b':
+		case 'c':
+			newcolor += 'dd';break;
+		case 'd':
+		case 'e':
+			newcolor += 'ee';break;
+		case 'f':
+			newcolor += 'ff';break;
+		}
+	}
+	
+	//alert(newcolor);
+	colr.save({player: newcolor});
 	//temporary solution
-	colr.set('player','#ffffff')
+	//colr.set('player','#ffffff')
 
 	var colr = colors.at(colorused);
 	var sze = sizes.at(sizeused);
@@ -105,8 +140,41 @@ function darker() {
 	//alert('gör pjäser mörkare');
 	var colr = colors.at(colorused);
 
+	var oldcolor = colr.get('computer');
+	var newcolor = '#';
+	for (var cl = 1; cl < 7; cl = cl + 2) {
+
+		var colchar = oldcolor.charAt(cl);
+		switch (colchar) {
+		case 'f':
+		case 'e':
+		case 'd':
+		case 'c':
+			newcolor += 'aa';break;
+		case 'b':
+		case 'a':
+		case '9':
+		case '8':
+		case '7':
+			newcolor += '55';break;
+		case '6':
+		case '5':
+			newcolor += '33';break;
+		case '4':
+		case '3':
+			newcolor += '22';break;
+		case '2':
+		case '1':
+			newcolor += '11';break;
+		case '0':
+			newcolor += '00';break;
+		}
+	}
+	
+	//alert(newcolor);
+	colr.save({computer: newcolor});
 	//temporary solution
-	colr.set('computer','#000000')
+	//colr.set('computer','#000000')
 
 	var colr = colors.at(colorused);
 	var sze = sizes.at(sizeused);
