@@ -24,12 +24,14 @@ function newGame() {
 		localStorage:new Store("localSizes"),
 		model:size
 	});
+	sizeColl.bind("add",function(model){model.save();})
 	sizes = new sizeColl;
 	sizes.fetch();
 	colorColl = Backbone.Collection.extend({
 		localStorage:new Store("localColors"),
-		model:size
+		model:color
 	});
+	colorColl.bind("add",function(model){model.save();});
 	colors = new colorColl;
 	/*sizes.push(new size({
 		widthheight:20
