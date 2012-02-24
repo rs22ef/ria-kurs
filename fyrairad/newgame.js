@@ -11,6 +11,7 @@
   sizes - array of available sizes
   colors - array of available colors
   playerturn - if true, it's the 1st player's turn
+  differentSize - if true, there are sizes loaded from localstorage
   lastmove - the row of the last move played
   field - array of squares in the field, if 0, no piece, if 1, user has piece, if 2, computer has piece
   piecesinrow - the number of pieces in each row
@@ -37,12 +38,18 @@ function newGame() {
 		widthheight:25
 	}));*/
 	//sizes.create doesn't work
-	sizes.create(
-		{widthheight:20}
-	);
-	sizes.create(
-   		{widthheight:25}
-   	);
+	var differentSize;
+	if (sizes.length == 0) {
+		sizes.create(
+			{widthheight:20}
+		);
+		sizes.create(
+	   		{widthheight:25}
+	   	);
+		differentSize = false;
+	} else {
+		differentSize = true;
+	}
 	maxsizes = sizes.length;
 	/*for (var i=0;i<maxsizes;i++) {
 		size = sizes.at(i);
@@ -76,5 +83,10 @@ function newGame() {
 	piecesinrow = new Array();
 	for (var i = 0; i < 6; i++) {
 		piecesinrow[i] = 0;
+	}
+	if (differentSize) {
+		var sze = sizes.at(sizeused);
+		fieldsize = sze.get('widthheight');
+		updateSize();
 	}
 }
