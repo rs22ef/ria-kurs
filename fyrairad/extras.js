@@ -5,6 +5,9 @@
   Function: removeSize
   removes a size
   
+  Function: resetColors
+  resets the colors to original values
+  
   Function: lighter
   makes the first player's pieces lighter
   
@@ -85,6 +88,35 @@ function removeSize() {
 		
 		updateSize();
 	}
+}
+
+function resetColors() {
+	//alert('återställer färgerna');
+	
+	//the following was only used during debugging
+	/*while (colors.length > 2) {
+		colr = colors.at(2);
+		colr.destroy();
+	}*/
+	
+	colr = colors.at(0);
+	colr.save({
+		player:'#ff0000',
+		computer:'#00ff00'
+	});
+	colr = colors.at(1);
+	colr.save({
+		player:'#ffff00',
+		computer:'#0000ff'
+	});
+	
+	var colr = colors.at(colorused);
+	var sze = sizes.at(sizeused);
+	playercolor = colr.get('player');
+	computercolor = colr.get('computer');
+	fieldsize = sze.get('widthheight');
+	
+	updateColor();
 }
 
 function lighter() {

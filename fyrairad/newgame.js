@@ -33,6 +33,7 @@ function newGame() {
 	});
 	colorColl.bind("add",function(model){model.save();});
 	colors = new colorColl;
+	colors.fetch();
 	/*sizes.push(new size({
 		widthheight:20
 	}));
@@ -65,14 +66,16 @@ function newGame() {
 		player:'#ffff00',
 		computer:'#0000ff'
 	}));*/
-	colors.create({
-		player:'#ff0000',
-		computer:'#00ff00'
-	});
-	colors.create({
-		player:'#ffff00',
-		computer:'#0000ff'
-	});
+	if (colors.length == 0) {
+		colors.create({
+			player:'#ff0000',
+			computer:'#00ff00'
+		});
+		colors.create({
+			player:'#ffff00',
+			computer:'#0000ff'
+		});
+	}
 	maxcolors = colors.length;
 	colorused = 0;
 	sizeused = 0;
