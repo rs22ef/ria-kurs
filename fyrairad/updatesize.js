@@ -1,6 +1,11 @@
 /*
   Function: updateSize
   updates sizes after size settings have been changed
+  
+  Variables:
+  
+  i - variable for counting vertical rows
+  j - variable for counting horizontal rows
  */
 
 function updateSize() {

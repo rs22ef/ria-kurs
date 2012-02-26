@@ -1,12 +1,14 @@
-/*.size0 td
+h2
 {
-	padding:20px;
+	font-family:sans-serif;
+	color:#cc9933;
 }
 
-.size1 td
+p
 {
-	padding:25px;
-}*/
+	font-family:sans-serif;
+	color:#771144;
+}
 
 .color0player
 {
@@ -78,5 +80,11 @@ td
 	border-color:#666666;
 	border-width:10px;
 	border-style:solid;
-	/*color:white;*/
 }
+
+.bottom li
+{
+	background-color:#443344;
+	color:#aaccbb;
+}
+

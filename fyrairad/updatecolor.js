@@ -1,6 +1,11 @@
 /*
   Function: updateColor
   updates colors after color settings have been changed
+  
+  Variables:
+  
+  i - variable for counting vertical rows
+  j - variable for counting horizontal rows
  */
 
 function updateColor() {

@@ -1,6 +1,6 @@
 /*
   Function: newGame
-  sets some variables
+  sets some global variables at the beginning of the game
   
   Variables:
   
@@ -18,8 +18,6 @@
 */
 
 function newGame() {
-	//sizes = new Array();
-	//colors = new Array();
 	sizeColl = Backbone.Collection.extend({
 		localStorage:new Store("localSizes"),
 		model:size
@@ -34,13 +32,6 @@ function newGame() {
 	colorColl.bind("add",function(model){model.save();});
 	colors = new colorColl;
 	colors.fetch();
-	/*sizes.push(new size({
-		widthheight:20
-	}));
-	sizes.push(new size({
-		widthheight:25
-	}));*/
-	//sizes.create doesn't work
 	var differentSize;
 	if (sizes.length == 0) {
 		sizes.create(
@@ -54,18 +45,6 @@ function newGame() {
 		differentSize = true;
 	}
 	maxsizes = sizes.length;
-	/*for (var i=0;i<maxsizes;i++) {
-		size = sizes.at(i);
-		size.save();
-	}*/
-	/*colors.push(new color({
-		player:'#ff0000',
-		computer:'#00ff00'
-	}));
-	colors.push(new color({
-		player:'#ffff00',
-		computer:'#0000ff'
-	}));*/
 	if (colors.length == 0) {
 		colors.create({
 			player:'#ff0000',

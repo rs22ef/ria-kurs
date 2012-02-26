@@ -21,7 +21,6 @@ function addSize() {
 	if (newSize != null) {
 		
 		var nsOK = true;
-		//alert('lägger till storlek ' + newSize);
 		var size = Backbone.Model.extend({
 			validate:function(attrs) {
 				if (isNaN(parseInt(attrs.widthheight))) {
@@ -36,7 +35,6 @@ function addSize() {
 			}
 		});
 		var ns = new size({
-			//widthheight: newSize
 		});
 		
 		ns.on("error", function(model, error) {
@@ -47,16 +45,12 @@ function addSize() {
 		ns.set({
 			widthheight: newSize
 		})		
-		/*sizes.add([
-			{widthheight: newSize}
-		])*/
 		
 		if(nsOK) {
 			sizes.add(ns,{at:sizeused+1});
 			ns.save();
 			maxsizes = sizes.length;
 			sizeused = (++sizeused) % maxsizes;
-			//sizeused = maxsizes - 1;
 	
 			var colr = colors.at(colorused);
 			var sze = sizes.at(sizeused);
@@ -73,7 +67,6 @@ function removeSize() {
 	if (sizes.length == 1) {
 		alert('den sista storleken kan inte tas bort')
 	} else {
-		//alert('tar bort storlek');
 		var sze = sizes.at(sizeused);
 		sze.destroy();
 		sizes.remove(sze);
@@ -91,13 +84,6 @@ function removeSize() {
 }
 
 function resetColors() {
-	//alert('återställer färgerna');
-	
-	//the following was only used during debugging
-	/*while (colors.length > 2) {
-		colr = colors.at(2);
-		colr.destroy();
-	}*/
 	
 	colr = colors.at(0);
 	colr.save({
@@ -120,7 +106,6 @@ function resetColors() {
 }
 
 function lighter() {
-	//alert('gör pjäser ljusare');
 	var colr = colors.at(colorused);
 
 	var oldcolor = colr.get('player');
@@ -154,10 +139,7 @@ function lighter() {
 		}
 	}
 	
-	//alert(newcolor);
 	colr.save({player: newcolor});
-	//temporary solution
-	//colr.set('player','#ffffff')
 
 	var colr = colors.at(colorused);
 	var sze = sizes.at(sizeused);
@@ -169,7 +151,6 @@ function lighter() {
 }
 
 function darker() {
-	//alert('gör pjäser mörkare');
 	var colr = colors.at(colorused);
 
 	var oldcolor = colr.get('computer');
@@ -203,10 +184,7 @@ function darker() {
 		}
 	}
 	
-	//alert(newcolor);
 	colr.save({computer: newcolor});
-	//temporary solution
-	//colr.set('computer','#000000')
 
 	var colr = colors.at(colorused);
 	var sze = sizes.at(sizeused);

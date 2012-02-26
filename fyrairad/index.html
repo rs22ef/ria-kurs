@@ -15,13 +15,12 @@
 	    <script type="text/javascript" src="changemove.js"></script>
 	    <script type="text/javascript" src="gameover.js"></script>
 	    <script type="text/javascript" src="extras.js"></script>
-<!--	    <script type="text/javascript" src="fyrairad.js"></script> -->
 	</head>
 	<body>
 		<h2>Fyra i rad</h2>
 		<p>Här kan man spela fyra-i-rad</p>
 		<div>
-			<table id="top"> <!--class="size0"-->
+			<table id="top">
 				<tr>
 					<td style="padding-left:20px;padding-right:20px" id="row1" onclick="addPiece(1)">rad 1</td>
 					<td style="padding-left:20px;padding-right:20px" id="row2" onclick="addPiece(2)">rad 2</td>
@@ -31,7 +30,7 @@
 					<td style="padding-left:20px;padding-right:20px" id="row6" onclick="addPiece(6)">rad 6</td>
 				</tr>
 			</table>
-			<table id="field"> <!--class="size0"-->
+			<table id="field">
 				<tr>
 					<td style="padding:20px" id="cell14">14</td>
 					<td style="padding:20px" id="cell24">24</td>
@@ -71,7 +70,7 @@
 			<li onclick="changeColor()">Växla färg</li>
 			<li id="lastmove" onclick="changeLastMove()">Ångra senaste drag</li>
 		</ul>
-		<ul>
+		<ul class="bottom">
 			<li onclick="addSize()">Lägg till storlek</li>
 			<li onclick="removeSize()">Ta bort storlek</li>
 			<li onclick="resetColors()">Återställ färger</li>

@@ -1,12 +1,21 @@
 /*
   Function: gameOver()
   if there are four pieces of the same color in a row, this should return true
+  
+  Variables:
+  
+  i - variable for counting vertical rows
+  j - variable for counting horizontal rows
+  
+  Returns:
+  
+  true if one player has 4 pieces in a row, diagonally, horizontally or vertically,
+  false otherwise
  */
 
 function gameOver() {
 	endofgame = false;
 
-	//should be set to true if 4 in a row
 	var i = 0;
 	var j = 0;
 	

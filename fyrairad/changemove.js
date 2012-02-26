@@ -1,6 +1,10 @@
 /*
   Function: changeLastMove
   changes the last move
+  
+  Variables:
+  
+  sze - object with the size in use
  */
 
 function changeLastMove() {
@@ -29,13 +33,10 @@ function changeLastMove() {
 		
 				cell = document.getElementById(cellid);
 				
-				//cell.removeAttribute('class');
-				//cell.removeAttribute('style');
 				cell.setAttribute('style',msg);
 				
 			});
 	
-			//var sze = sizes[size];
 			var sze = sizes.at(sizeused);
 			fieldsize = sze.get('widthheight');
 			

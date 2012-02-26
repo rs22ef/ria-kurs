@@ -2,9 +2,12 @@
    Function: addPiece(row)
    adds another piece
    
+   Parameters:
+
+   row - the row in which the piece is added
+   
    Variables:
    
-   row - the row in which the piece is added
    colr - object with the colors in use
    sze - object with the size in use
    winnernr - the number of the player who has won
@@ -22,20 +25,16 @@ function addPiece(row) {
 		
 		if (piecenr <= 4) {
 	
-			//var colr = colors[color];
 			var colr = colors.at(colorused);
-			//var sze = sizes[size];
 			var sze = sizes.at(sizeused);
 			cellid = 'cell'+row+piecenr;
 			field[row-1][piecenr-1] = (playerturn)? 1 : 2;
 			fieldsize = sze.get('widthheight');
 			if (playerturn) {
 				playercolor = colr.get('player');
-				//colorstring = 'color'+color+'player';
 				colorstring = 'padding:' + fieldsize + 'px;color:' + playercolor + ';background-color:' + playercolor;
 			} else {
 				computercolor = colr.get('computer');
-				//colorstring = 'color'+color+'computer';
 				colorstring = 'padding:' + fieldsize + 'px;color:' + computercolor + ';background-color:' + computercolor;
 			}
 			playerturn = !playerturn;
@@ -50,15 +49,8 @@ function addPiece(row) {
 		
 				cell = document.getElementById(cellid);
 				
-				//cell.setAttribute('class',msg);
 				cell.setAttribute('style',msg);
 				
-		/*		if (gameOver()) {
-					alert('slut');
-				} else {
-					alert('inte slut');
-				}*/
-		
 			});
 		
 			object.trigger("setcolor",colorstring);
