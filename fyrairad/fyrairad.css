@@ -65,6 +65,7 @@ td
 	padding-bottom:8px;
 	padding-top:12px;
 	background-color:#333333;
+	cursor:pointer;
 }
 
 #field
@@ -80,6 +81,7 @@ td
 	border-color:#666666;
 	border-width:10px;
 	border-style:solid;
+	cursor:pointer;
 }
 
 .bottom li
