@@ -18,6 +18,8 @@
 */
 
 function newGame() {
+    setupTDs();
+
 	sizeColl = Backbone.Collection.extend({
 		localStorage:new Store("localSizes"),
 		model:size
