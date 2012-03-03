@@ -7,9 +7,9 @@
 function setupTDs()
 {
     //for loop closure counter
-    var f_addpiece = function(a_row)
+    var f_addpiece = function(a_row, i)
     {
-        return function() { addPiece(a_row); }
+        return function() { addPiece2(a_row, i); }
     }    
 
     var f_fieldTable = document.getElementById("field");
@@ -23,7 +23,7 @@ function setupTDs()
         {            
 
             //Row + 1 as the row index is 1 -> n
-            f_tds[j].onclick = f_addpiece(j + 1);
+            f_tds[j].onclick = f_addpiece(j + 1, i);
             
         }
     }

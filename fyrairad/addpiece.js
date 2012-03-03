@@ -63,7 +63,22 @@ function addPiece(row) {
 			}
 		
 		} else {
+
 			alert('Rad '+row+' är redan full');
+
 		}
+	}
+}
+
+function addPiece2(row, i) {
+
+	if (3 - i == piecesinrow[row - 1]) {
+	
+		addPiece(row);
+
+	} else {
+	
+		alert('fel ruta');
+
 	}
 }
