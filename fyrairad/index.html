@@ -23,12 +23,12 @@
 		<div>
 			<table id="top">
 				<tr>
-					<td style="padding-left:20px;padding-right:20px" id="row1" onclick="addPiece(1)">rad 1</td>
-					<td style="padding-left:20px;padding-right:20px" id="row2" onclick="addPiece(2)">rad 2</td>
-					<td style="padding-left:20px;padding-right:20px" id="row3" onclick="addPiece(3)">rad 3</td>
-					<td style="padding-left:20px;padding-right:20px" id="row4" onclick="addPiece(4)">rad 4</td>
-					<td style="padding-left:20px;padding-right:20px" id="row5" onclick="addPiece(5)">rad 5</td>
-					<td style="padding-left:20px;padding-right:20px" id="row6" onclick="addPiece(6)">rad 6</td>
+					<td style="padding-left:20px;padding-right:20px" id="row1" onclick="FIR.addPiece(1)">rad 1</td>
+					<td style="padding-left:20px;padding-right:20px" id="row2" onclick="FIR.addPiece(2)">rad 2</td>
+					<td style="padding-left:20px;padding-right:20px" id="row3" onclick="FIR.addPiece(3)">rad 3</td>
+					<td style="padding-left:20px;padding-right:20px" id="row4" onclick="FIR.addPiece(4)">rad 4</td>
+					<td style="padding-left:20px;padding-right:20px" id="row5" onclick="FIR.addPiece(5)">rad 5</td>
+					<td style="padding-left:20px;padding-right:20px" id="row6" onclick="FIR.addPiece(6)">rad 6</td>
 				</tr>
 			</table>
 			<table id="field">
@@ -67,19 +67,19 @@
 			</table>
 		</div>
 		<ul>
-			<li onclick="changeSize()">Växla storlek</li>
-			<li onclick="changeColor()">Växla färg</li>
-			<li id="lastmove" onclick="changeLastMove()">Ångra senaste drag</li>
+			<li onclick="FIR.changeSize()">Växla storlek</li>
+			<li onclick="FIR.changeColor()">Växla färg</li>
+			<li id="lastmove" onclick="FIR.changeLastMove()">Ångra senaste drag</li>
 		</ul>
 		<ul class="bottom">
-			<li onclick="addSize()">Lägg till storlek</li>
-			<li onclick="removeSize()">Ta bort storlek</li>
-			<li onclick="resetColors()">Återställ färger</li>
-			<li onclick="lighter()">Gör 1:a spelarens färg ljusare</li>
-			<li onclick="darker()">Gör 2:a spelarens färg mörkare</li>
+			<li onclick="FIR.addSize()">Lägg till storlek</li>
+			<li onclick="FIR.removeSize()">Ta bort storlek</li>
+			<li onclick="FIR.resetColors()">Återställ färger</li>
+			<li onclick="FIR.lighter()">Gör 1:a spelarens färg ljusare</li>
+			<li onclick="FIR.darker()">Gör 2:a spelarens färg mörkare</li>
 		</ul>
 		<script type="text/javascript">
-			window.onload = newGame;
+			window.onload = FIR.newGame;
 		</script>
 	</body>
 </html>

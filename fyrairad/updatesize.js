@@ -1,3 +1,4 @@
+var FIR = FIR || {};
 /*
   Function: updateSize
   updates sizes after size settings have been changed
@@ -8,7 +9,7 @@
   j - variable for counting horizontal rows
  */
 
-function updateSize() {
+FIR.updateSize = function() {
 	
 	var object = {};
 	
@@ -16,7 +17,7 @@ function updateSize() {
 
 	object.on("setsize", function(msg) {
 
-		cell = document.getElementById(cellid);
+		var cell = document.getElementById(FIR.cellid);
 		
 		cell.setAttribute('style',msg);
 		
@@ -24,23 +25,23 @@ function updateSize() {
 	
 	for (var i = 0; i < 6; i++) {
 		
-		cellid = 'row'+(i+1);
-		sizestring = 'padding-left:' + fieldsize + 'px;padding-right:' + fieldsize + 'px';
-		object.trigger("setsize",sizestring);
+		FIR.cellid = 'row'+(i+1);
+		FIR.sizestring = 'padding-left:' + FIR.fieldsize + 'px;padding-right:' + FIR.fieldsize + 'px';
+		object.trigger("setsize",FIR.sizestring);
 		
 		for (var j = 0; j < 4; j++) {
 
-			cellid = 'cell'+(i+1)+(j+1);
+			FIR.cellid = 'cell'+(i+1)+(j+1);
 			
-			switch (field[i][j]) {
-			case 0:	colorstring = 'padding:' + fieldsize + 'px';
-					object.trigger("setsize",colorstring);
+			switch (FIR.field[i][j]) {
+			case 0:	FIR.colorstring = 'padding:' + FIR.fieldsize + 'px';
+					object.trigger("setsize",FIR.colorstring);
 					break;
-			case 1:	colorstring = 'padding:' + fieldsize + 'px;color:' + playercolor + ';background-color:' + playercolor;
-					object.trigger("setsize",colorstring);
+			case 1:	FIR.colorstring = 'padding:' + FIR.fieldsize + 'px;color:' + playercolor + ';background-color:' + playercolor;
+					object.trigger("setsize",FIR.colorstring);
 					break;
-			case 2:	colorstring = 'padding:' + fieldsize + 'px;color:' + computercolor + ';background-color:' + computercolor;
-					object.trigger("setsize",colorstring);
+			case 2:	FIR.colorstring = 'padding:' + FIR.fieldsize + 'px;color:' + computercolor + ';background-color:' + computercolor;
+					object.trigger("setsize",FIR.colorstring);
 					break;
 			}
 		}
