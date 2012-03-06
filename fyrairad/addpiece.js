@@ -1,3 +1,6 @@
+//Four In Row
+var FIR = FIR || {};
+
 /*
    Function: addPiece(row)
    adds another piece
@@ -13,33 +16,33 @@
    winnernr - the number of the player who has won
  */
 
-function addPiece(row) {
+FIR.addPiece = function(row) {
 	
-	if (gameOver()) {
+	if (FIR.gameOver()) {
 		
 		alert('Spelet är slut.');
 		
 	} else {
 		
-		piecenr = piecesinrow[row-1]+1;
+		var piecenr = FIR.piecesinrow[row-1]+1;
 		
 		if (piecenr <= 4) {
 	
-			var colr = colors.at(colorused);
-			var sze = sizes.at(sizeused);
-			cellid = 'cell'+row+piecenr;
-			field[row-1][piecenr-1] = (playerturn)? 1 : 2;
-			fieldsize = sze.get('widthheight');
-			if (playerturn) {
-				playercolor = colr.get('player');
-				colorstring = 'padding:' + fieldsize + 'px;color:' + playercolor + ';background-color:' + playercolor;
+			FIR.colr = FIR.colors.at(FIR.colorused);
+			FIR.sze = FIR.sizes.at(FIR.sizeused);
+			FIR.cellid = 'cell'+row+piecenr;
+			FIR.field[row-1][piecenr-1] = (FIR.playerturn)? 1 : 2;
+			FIR.fieldsize = FIR.sze.get('widthheight');
+			if (FIR.playerturn) {
+				FIR.playercolor = FIR.colr.get('player');
+				FIR.colorstring = 'padding:' + FIR.fieldsize + 'px;color:' + FIR.playercolor + ';background-color:' + FIR.playercolor;
 			} else {
-				computercolor = colr.get('computer');
-				colorstring = 'padding:' + fieldsize + 'px;color:' + computercolor + ';background-color:' + computercolor;
+				FIR.computercolor = FIR.colr.get('computer');
+				FIR.colorstring = 'padding:' + FIR.fieldsize + 'px;color:' + FIR.computercolor + ';background-color:' + FIR.computercolor;
 			}
-			playerturn = !playerturn;
-			lastmove = row;
-			piecesinrow[row-1]++;
+			FIR.playerturn = !FIR.playerturn;
+			FIR.lastmove = row;
+			FIR.piecesinrow[row-1]++;
 			
 			var object = {};
 			
@@ -47,17 +50,17 @@ function addPiece(row) {
 		
 			object.on("setcolor", function(msg) {
 		
-				cell = document.getElementById(cellid);
+				var cell = document.getElementById(FIR.cellid);
 				
 				cell.setAttribute('style',msg);
 				
 			});
 		
-			object.trigger("setcolor",colorstring);
+			object.trigger("setcolor",FIR.colorstring);
 			
-			if (gameOver()) {
+			if (FIR.gameOver()) {
 			
-				var winnernr = (playerturn)? 2 : 1;
+				var winnernr = (FIR.playerturn)? 2 : 1;
 				alert('Spelare ' + winnernr + ' har vunnit!');
 				
 			}
@@ -68,13 +71,13 @@ function addPiece(row) {
 
 		}
 	}
-}
+};
 
-function addPiece2(row, i) {
+FIR.addPiece2 = function(row, i) {
 
-	if (3 - i == piecesinrow[row - 1]) {
+	if (3 - i == FIR.piecesinrow[row - 1]) {
 	
-		addPiece(row);
+		FIR.addPiece(row);
 
 	} else {
 	
