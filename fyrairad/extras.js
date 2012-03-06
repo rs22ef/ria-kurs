@@ -1,3 +1,5 @@
+var FIR = FIR || {};
+
 /*
   Function: addSize
   adds a size
@@ -16,7 +18,7 @@
  */
 
 
-function addSize() {
+FIR.addSize = function() {
 	var newSize = prompt('Ange ny storlek mellan 10 och 35');
 	if (newSize != null) {
 		
@@ -47,68 +49,68 @@ function addSize() {
 		})		
 		
 		if(nsOK) {
-			sizes.add(ns,{at:sizeused+1});
+			FIR.sizes.add(ns,{at:FIR.sizeused+1});
 			ns.save();
-			maxsizes = sizes.length;
-			sizeused = (++sizeused) % maxsizes;
+			FIR.maxsizes = FIR.sizes.length;
+			FIR.sizeused = (++FIR.sizeused) % FIR.maxsizes;
 	
-			var colr = colors.at(colorused);
-			var sze = sizes.at(sizeused);
-			playercolor = colr.get('player');
-			computercolor = colr.get('computer');
-			fieldsize = sze.get('widthheight');
+			FIR.colr = FIR.colors.at(FIR.colorused);
+			FIR.sze = FIR.sizes.at(FIR.sizeused);
+			FIR.playercolor = FIR.colr.get('player');
+			FIR.computercolor = FIR.colr.get('computer');
+			FIR.fieldsize = FIR.sze.get('widthheight');
 			
-			updateSize();
+			FIR.updateSize();
 		}
 	}
 }
 
-function removeSize() {
-	if (sizes.length == 1) {
+FIR.removeSize = function() {
+	if (FIR.sizes.length == 1) {
 		alert('den sista storleken kan inte tas bort')
 	} else {
-		var sze = sizes.at(sizeused);
+		var sze = FIR.sizes.at(FIR.sizeused);
 		sze.destroy();
-		sizes.remove(sze);
-		maxsizes = sizes.length;
-		sizeused = sizeused % maxsizes;
+		FIR.sizes.remove(sze);
+		FIR.maxsizes = FIR.sizes.length;
+		FIR.sizeused = FIR.sizeused % FIR.maxsizes;
 
-		var colr = colors.at(colorused);
-		var sze = sizes.at(sizeused);
-		playercolor = colr.get('player');
-		computercolor = colr.get('computer');
-		fieldsize = sze.get('widthheight');
+		FIR.colr = FIR.colors.at(FIR.colorused);
+		FIR.sze = FIR.sizes.at(FIR.sizeused);
+		FIR.playercolor = FIR.colr.get('player');
+		FIR.computercolor = FIR.colr.get('computer');
+		FIR.fieldsize = FIR.sze.get('widthheight');
 		
-		updateSize();
+		FIR.updateSize();
 	}
 }
 
-function resetColors() {
+FIR.resetColors = function() {
 	
-	colr = colors.at(0);
-	colr.save({
+	FIR.colr = FIR.colors.at(0);
+	FIR.colr.save({
 		player:'#ff0000',
 		computer:'#00ff00'
 	});
-	colr = colors.at(1);
-	colr.save({
+	FIR.colr = FIR.colors.at(1);
+	FIR.colr.save({
 		player:'#ffff00',
 		computer:'#0000ff'
 	});
 	
-	var colr = colors.at(colorused);
-	var sze = sizes.at(sizeused);
-	playercolor = colr.get('player');
-	computercolor = colr.get('computer');
-	fieldsize = sze.get('widthheight');
+	FIR.colr = FIR.colors.at(FIR.colorused);
+	FIR.sze = FIR.sizes.at(FIR.sizeused);
+	FIR.playercolor = FIR.colr.get('player');
+	FIR.computercolor = FIR.colr.get('computer');
+	FIR.fieldsize = FIR.sze.get('widthheight');
 	
-	updateColor();
+	FIR.updateColor();
 }
 
-function lighter() {
-	var colr = colors.at(colorused);
+FIR.lighter = function() {
+	FIR.colr = FIR.colors.at(FIR.colorused);
 
-	var oldcolor = colr.get('player');
+	var oldcolor = FIR.colr.get('player');
 	var newcolor = '#';
 	for (var cl = 1; cl < 7; cl = cl + 2) {
 
@@ -139,21 +141,21 @@ function lighter() {
 		}
 	}
 	
-	colr.save({player: newcolor});
+	FIR.colr.save({player: newcolor});
 
-	var colr = colors.at(colorused);
-	var sze = sizes.at(sizeused);
-	playercolor = colr.get('player');
-	computercolor = colr.get('computer');
-	fieldsize = sze.get('widthheight');
+	FIR.colr = FIR.colors.at(FIR.colorused);
+	FIR.sze = FIR.sizes.at(FIR.sizeused);
+	FIR.playercolor = FIR.colr.get('player');
+	FIR.computercolor = FIR.colr.get('computer');
+	FIR.fieldsize = FIR.sze.get('widthheight');
 	
-	updateColor();
+	FIR.updateColor();
 }
 
-function darker() {
-	var colr = colors.at(colorused);
+FIR.darker = function() {
+	FIR.colr = FIR.colors.at(FIR.colorused);
 
-	var oldcolor = colr.get('computer');
+	var oldcolor = FIR.colr.get('computer');
 	var newcolor = '#';
 	for (var cl = 1; cl < 7; cl = cl + 2) {
 
@@ -184,13 +186,13 @@ function darker() {
 		}
 	}
 	
-	colr.save({computer: newcolor});
+	FIR.colr.save({computer: newcolor});
 
-	var colr = colors.at(colorused);
-	var sze = sizes.at(sizeused);
-	playercolor = colr.get('player');
-	computercolor = colr.get('computer');
-	fieldsize = sze.get('widthheight');
+	FIR.colr = FIR.colors.at(FIR.colorused);
+	FIR.sze = FIR.sizes.at(FIR.sizeused);
+	FIR.playercolor = FIR.colr.get('player');
+	FIR.computercolor = FIR.colr.get('computer');
+	FIR.fieldsize = FIR.sze.get('widthheight');
 	
-	updateColor();
+	FIR.updateColor();
 }

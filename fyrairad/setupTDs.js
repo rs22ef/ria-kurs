@@ -1,15 +1,16 @@
-﻿/*
+﻿var FIR = FIR || {};
+/*
   Function: setupTDs
   Makes the TD elements inside field id tag clickable so you can click on them instead of the "rad x" button at the very top. 
   
 */
 
-function setupTDs()
+FIR.setupTDs = function()
 {
     //for loop closure counter
     var f_addpiece = function(a_row, i)
     {
-        return function() { addPiece2(a_row, i); }
+        return function() { FIR.addPiece2(a_row, i); }
     }    
 
     var f_fieldTable = document.getElementById("field");

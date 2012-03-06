@@ -1,3 +1,4 @@
+var FIR = FIR || {};
 /*
   Function: updateColor
   updates colors after color settings have been changed
@@ -8,7 +9,7 @@
   j - variable for counting horizontal rows
  */
 
-function updateColor() {
+FIR.updateColor = function() {
 	
 	var object = {};
 	
@@ -16,7 +17,7 @@ function updateColor() {
 
 	object.on("setcolor", function(msg) {
 
-		cell = document.getElementById(cellid);
+		cell = document.getElementById(FIR.cellid);
 		
 		cell.setAttribute('style',msg);
 		
@@ -25,15 +26,15 @@ function updateColor() {
 	for (var i = 0; i < 6; i++) {
 		for (var j = 0; j < 4; j++) {
 
-			cellid = 'cell'+(i+1)+(j+1);
+			FIR.cellid = 'cell'+(i+1)+(j+1);
 			
-			switch (field[i][j]) {
+			switch (FIR.field[i][j]) {
 			case 0:break;
-			case 1:	colorstring = 'padding:' + fieldsize + 'px;color:' + playercolor + ';background-color:' + playercolor;
-					object.trigger("setcolor",colorstring);
+			case 1:	FIR.colorstring = 'padding:' + FIR.fieldsize + 'px;color:' + FIR.playercolor + ';background-color:' + FIR.playercolor;
+					object.trigger("setcolor",FIR.colorstring);
 					break;
-			case 2:	colorstring = 'padding:' + fieldsize + 'px;color:' + computercolor + ';background-color:' + computercolor;
-					object.trigger("setcolor",colorstring);
+			case 2:	FIR.colorstring = 'padding:' + FIR.fieldsize + 'px;color:' + FIR.computercolor + ';background-color:' + FIR.computercolor;
+					object.trigger("setcolor",FIR.colorstring);
 					break;
 			}
 		}
