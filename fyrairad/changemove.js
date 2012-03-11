@@ -1,30 +1,30 @@
-var FIR = FIR || {};
 /*
   Function: changeLastMove
   changes the last move
+  calls gameover
   
   Variables:
   
   sze - object with the size in use
  */
 
-FIR.changeLastMove = function() {
-	if (FIR.lastmove > 0) {
+function changeLastMove() {
+	if (lastmove > 0) {
 
-		if (FIR.gameOver()) {
+		if (gameOver()) {
 			
 			alert('Spelet är slut');
 			
 		} else {
 			
-			var piecenr = FIR.piecesinrow[FIR.lastmove-1];
+			piecenr = piecesinrow[lastmove-1];
 		
-			FIR.cellid = 'cell'+FIR.lastmove+piecenr;
+			cellid = 'cell'+lastmove+piecenr;
 		
-			FIR.playerturn = !FIR.playerturn;
-			FIR.piecesinrow[lastmove-1]--;
-			FIR.field[FIR.lastmove-1][piecenr-1] = 0;
-			FIR.lastmove = 0;
+			playerturn = !playerturn;
+			piecesinrow[lastmove-1]--;
+			field[lastmove-1][piecenr-1] = 0;
+			lastmove = 0;
 			
 			var object = {};
 			
@@ -32,17 +32,17 @@ FIR.changeLastMove = function() {
 		
 			object.on("changemove", function(msg) {
 		
-				var cell = document.getElementById(FIR.cellid);
+				cell = document.getElementById(cellid);
 				
 				cell.setAttribute('style',msg);
 				
 			});
 	
-			FIR.sze = FIR.sizes.at(FIR.sizeused);
-			FIR.fieldsize = FIR.sze.get('widthheight');
+			var sze = sizes.at(sizeused);
+			fieldsize = sze.get('widthheight');
 			
-			FIR.colorstring = 'padding:' + FIR.fieldsize + 'px';
-			object.trigger("changemove",FIR.colorstring);
+			colorstring = 'padding:' + fieldsize + 'px';
+			object.trigger("changemove",colorstring);
 		}
 		
 	} else {

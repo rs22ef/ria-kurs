@@ -1,7 +1,8 @@
-var FIR = FIR || {};
 /*
   Function: gameOver()
   if there are four pieces of the same color in a row, this should return true
+  called by addpiece
+  called by changemove
   
   Variables:
   
@@ -14,45 +15,45 @@ var FIR = FIR || {};
   false otherwise
  */
 
-FIR.gameOver = function() {
-	FIR.endofgame = false;
+function gameOver() {
+	endofgame = false;
 
 	var i = 0;
 	var j = 0;
 	
 	for (i=0;i<6;i++) {
-		if (FIR.field[i][0] > 0) {
-			if (FIR.field[i][0] == FIR.field[i][1] && FIR.field[i][0] == FIR.field[i][2] && FIR.field[i][0] == FIR.field[i][3]) {
-				FIR.endofgame = true;
+		if (field[i][0] > 0) {
+			if (field[i][0] == field[i][1] && field[i][0] == field[i][2] && field[i][0] == field[i][3]) {
+				endofgame = true;
 			}
 		}
 	}
 
 	for (i=0;i<3;i++) {
 		for (j=0;j<4;j++) {
-			if (FIR.field[i][j] > 0) {
-				if (FIR.field[i][j] == FIR.field[i+1][j] && FIR.field[i][j] == FIR.field[i+2][j] && FIR.field[i][j] == FIR.field[i+3][j]) {
-					FIR.endofgame = true;
+			if (field[i][j] > 0) {
+				if (field[i][j] == field[i+1][j] && field[i][j] == field[i+2][j] && field[i][j] == field[i+3][j]) {
+					endofgame = true;
 				}
 			}
 		}
 	}
 
 	for (i=0;i<3;i++) {
-		if (FIR.field[i][0] > 0) {
-			if (FIR.field[i][0] == FIR.field[i+1][1] && FIR.field[i][0] == FIR.field[i+2][2] && FIR.field[i][0] == FIR.field[i+3][3]) {
-				FIR.endofgame = true;
+		if (field[i][0] > 0) {
+			if (field[i][0] == field[i+1][1] && field[i][0] == field[i+2][2] && field[i][0] == field[i+3][3]) {
+				endofgame = true;
 			}
 		}
 	}
 	
 	for (i=3;i<6;i++) {
-		if (FIR.field[i][0] > 0) {
-			if (FIR.field[i][0] == FIR.field[i-1][1] && FIR.field[i][0] == FIR.field[i-2][2] && FIR.field[i][0] == FIR.field[i-3][3]) {
-				FIR.endofgame = true;
+		if (field[i][0] > 0) {
+			if (field[i][0] == field[i-1][1] && field[i][0] == field[i-2][2] && field[i][0] == field[i-3][3]) {
+				endofgame = true;
 			}
 		}
 	}
 	
-	return FIR.endofgame;
+	return endofgame;
 }
