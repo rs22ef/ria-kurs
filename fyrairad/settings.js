@@ -1,11 +1,10 @@
+var FIR = FIR || {};
 /*
   Function: changeSize
   changes the size of the board
-  calls updateSize
   
   Function: changeColor
   changes the colors of the pieces
-  calls updateColor
   
   Variables:
   
@@ -13,34 +12,34 @@
   colr - the model for the sets of colors
 */
 
-var size = Backbone.Model.extend({
+FIR.size = Backbone.Model.extend({
 	widthheight:10,
 });
 
-var color = Backbone.Model.extend({
+FIR.color = Backbone.Model.extend({
 	player:'#ffffff',
 	computer:'#ffffff'
 });
 
-function changeSize() {
-	sizeused = (++sizeused) % maxsizes;
+FIR.changeSize = function() {
+	FIR.sizeused = (++FIR.sizeused) % FIR.maxsizes;
 
-	var colr = colors.at(colorused);
-	var sze = sizes.at(sizeused);
-	playercolor = colr.get('player');
-	computercolor = colr.get('computer');
-	fieldsize = sze.get('widthheight');
+	FIR.colr = FIR.colors.at(FIR.colorused);
+	FIR.sze = FIR.sizes.at(FIR.sizeused);
+	FIR.playercolor = FIR.colr.get('player');
+	FIR.computercolor = FIR.colr.get('computer');
+	FIR.fieldsize = FIR.sze.get('widthheight');
 	
-	updateSize();
+	FIR.updateSize();
 }
 
-function changeColor() {
-	colorused = (++colorused) % maxcolors;
-	var colr = colors.at(colorused);
-	var sze = sizes.at(sizeused);
-	playercolor = colr.get('player');
-	computercolor = colr.get('computer');
-	fieldsize = sze.get('widthheight');
+FIR.changeColor = function() {
+	FIR.colorused = (++FIR.colorused) % FIR.maxcolors;
+	FIR.colr = FIR.colors.at(FIR.colorused);
+	FIR.sze = FIR.sizes.at(FIR.sizeused);
+	FIR.playercolor = FIR.colr.get('player');
+	FIR.computercolor = FIR.colr.get('computer');
+	FIR.fieldsize = FIR.sze.get('widthheight');
 	
-	updateColor();
+	FIR.updateColor();
 }
