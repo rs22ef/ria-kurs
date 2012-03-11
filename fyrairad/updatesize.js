@@ -1,13 +1,21 @@
-var FIR = FIR || {};
 /*
   Function: updateSize
   updates sizes after size settings have been changed
+  
+  called by newGame
+
+  called by changeSize in settings.js
+  
+  called by addSize in extras.js
+
+  called by removeSize in extras.js
   
   Variables:
   
   i - variable for counting vertical rows
   j - variable for counting horizontal rows
  */
+var FIR = FIR || {};
 
 FIR.updateSize = function() {
 	

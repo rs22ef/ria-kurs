@@ -1,9 +1,10 @@
-//Four In Row
-var FIR = FIR || {};
-
 /*
  Function: newGame
  sets some global variables at the beginning of the game
+ 
+ calls setupTDs
+ 
+ calls updateSize
 
  Variables:
 
@@ -19,6 +20,9 @@ var FIR = FIR || {};
  field - array of squares in the field, if 0, no piece, if 1, user has piece, if 2, computer has piece
  piecesinrow - the number of pieces in each row
  */
+
+//Four In Row
+var FIR = FIR || {};
 
 FIR.newGame = function() {
     FIR.setupTDs();

@@ -1,7 +1,10 @@
-var FIR = FIR || {};
 /*
   Function: gameOver()
   if there are four pieces of the same color in a row, this should return true
+
+  called by addPiece
+  
+  called by changeMove
   
   Variables:
   
@@ -13,6 +16,7 @@ var FIR = FIR || {};
   true if one player has 4 pieces in a row, diagonally, horizontally or vertically,
   false otherwise
  */
+var FIR = FIR || {};
 
 FIR.gameOver = function() {
 	FIR.endofgame = false;

@@ -1,13 +1,21 @@
-var FIR = FIR || {};
 /*
   Function: updateColor
   updates colors after color settings have been changed
+  
+  called by changeColor in settings.js
+  
+  called by resetColors in extras.js
+  
+  called by lighter in extras.js
+  
+  called by darker in extras.js
   
   Variables:
   
   i - variable for counting vertical rows
   j - variable for counting horizontal rows
  */
+var FIR = FIR || {};
 
 FIR.updateColor = function() {
 	

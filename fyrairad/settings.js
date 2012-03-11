@@ -1,16 +1,20 @@
-var FIR = FIR || {};
 /*
   Function: changeSize
   changes the size of the board
   
+  calls updateSize
+  
   Function: changeColor
   changes the colors of the pieces
+  
+  calls updateColor
   
   Variables:
   
   sze - the model for sizes of the field
   colr - the model for the sets of colors
 */
+var FIR = FIR || {};
 
 FIR.size = Backbone.Model.extend({
 	widthheight:10,

@@ -1,12 +1,14 @@
-var FIR = FIR || {};
 /*
   Function: changeLastMove
   changes the last move
+  
+  calls gameOver
   
   Variables:
   
   sze - object with the size in use
  */
+var FIR = FIR || {};
 
 FIR.changeLastMove = function() {
 	if (FIR.lastmove > 0) {

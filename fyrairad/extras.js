@@ -1,21 +1,31 @@
-var FIR = FIR || {};
-
 /*
   Function: addSize
   adds a size
   
+  calls updateSize
+  
   Function: removeSize
   removes a size
+
+  calls updateSize
   
   Function: resetColors
   resets the colors to original values
   
+  calls updateColor
+  
   Function: lighter
   makes the first player's pieces lighter
   
+  calls updateColor
+  
   Function: darker
   makes the second player's pieces darker
+  
+  calls updateColor
  */
+
+var FIR = FIR || {};
 
 
 FIR.addSize = function() {
